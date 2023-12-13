@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:Shopping4F2.Models"
+             x:Name="this"
+             x:Class="Shopping4F2.Controls.RecipeProductView">
+    <Border
+        BindingContext="{x:Reference this}"
+        HorizontalOptions="Start" >
+        <StackLayout Orientation="Horizontal" Padding="10" HorizontalOptions="Start">
+            <Label FontSize="20" VerticalOptions="Center" Text="{Binding Product.Name}" Margin="0,0,30,0"/>
+            <Label x:Name="Count" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="20" Text="{Binding Product.Count}" />
+            <Label FontSize="20" VerticalOptions="Center" Text="{Binding Product.Unit}"/>
+        </StackLayout>
+    </Border>
+</ContentView>

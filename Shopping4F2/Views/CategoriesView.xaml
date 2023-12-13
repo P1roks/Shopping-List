@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Shopping4F2.Views.CategoriesView"
+             xmlns:models="clr-namespace:Shopping4F2.Models"
+             xmlns:viewmodels="clr-namespace:Shopping4F2.ViewModels"
+             xmlns:controls="clr-namespace:Shopping4F2.Controls"
+             Title="CategoriesView">
+    <ContentPage.BindingContext>
+        <viewmodels:ProductsCategoriesViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="{FontImage Glyph={x:Static models:Icons.AddIcon}, FontFamily='MaterialIcons'}" Text="Add Product" Command="{Binding AddProductCommand}" />
+        <ToolbarItem IconImageSource="{FontImage Glyph={x:Static models:Icons.CategoryIcon}, FontFamily='MaterialIcons'}" Text="Add Category" Command="{Binding AddCategoryCommand}"/>
+    </ContentPage.ToolbarItems>
+
+    <ListView ItemsSource="{Binding Categories}" SelectionMode="None">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <controls:CategoryView Group="{Binding}"/>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>

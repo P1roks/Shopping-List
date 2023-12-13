@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="Shopping4F2.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:Shopping4F2.Views"
+    xmlns:models="clr-namespace:Shopping4F2.Models"
+    Shell.FlyoutBehavior="Disabled">
+
+    <TabBar>
+        <ShellContent
+            Title="Shopping List"
+            ContentTemplate="{DataTemplate views:CategoriesView}"
+            Icon="{FontImage FontFamily='MaterialIcons', Glyph={x:Static models:Icons.CartIcon}}"
+            Route="CategoryList" />
+
+        <ShellContent
+            Title="Shop List"
+            ContentTemplate="{DataTemplate views:ProductsView}"
+            Icon="{FontImage FontFamily='MaterialIcons', Glyph={x:Static models:Icons.ShoppingBagIcon}}"
+            Route="ProductsList" />
+
+        <ShellContent 
+            Title="Recipes"
+            Icon="{FontImage FontFamily='MaterialIcons', Glyph={x:Static models:Icons.RecipeIcon}}"
+            ContentTemplate="{DataTemplate views:RecipesView}" 
+            Route="Recipes"
+            />
+    </TabBar>
+</Shell>

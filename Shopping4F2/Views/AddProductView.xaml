@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:Shopping4F2.Models"
+             x:Class="Shopping4F2.Views.AddProductView"
+             Title="Add Product">
+    <Grid VerticalOptions="Center" HorizontalOptions="Center" Padding="10" RowSpacing="20" ColumnSpacing="25">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        
+        <Label Text="Name" FontSize="30" Grid.Column="0" Grid.Row="0"/>
+        <Entry x:Name="NameEntry" Grid.Column="1" Grid.Row="0"/>
+
+        <Label Text="Unit" FontSize="30" Grid.Column="0" Grid.Row="1"/>
+        <Entry x:Name="UnitEntry" Grid.Column="1" Grid.Row="1"/>
+
+        <Label Text="Category" FontSize="30" Grid.Column="0" Grid.Row="2"/>
+        <Picker x:Name="CategoryPicker" Title="Select a Category" Grid.Column="1" Grid.Row="2" ItemsSource="{x:Static models:Product.Categories}" />
+
+        <Label Text="Count" FontSize="30" Grid.Column="0" Grid.Row="3"/>
+        <Entry x:Name="CountEntry" Grid.Column="1" Grid.Row="3" Keyboard="Numeric"/>
+
+        <Label Text="Shop (optional)" FontSize="30" Grid.Column="0" Grid.Row="4"/>
+        <Entry x:Name="ShopEntry" Grid.Column="1" Grid.Row="4"/>
+
+        <Label Text="Optional" FontSize="30" Grid.Column="0" Grid.Row="5"/>
+        <CheckBox x:Name="OptionalCheckBox" Grid.Column="1" Grid.Row="5"/>
+
+        <Button Text="Add Product" Grid.Row="6" Grid.Column="0" Clicked="AddButton_Clicked"/>
+    </Grid>
+</ContentPage>

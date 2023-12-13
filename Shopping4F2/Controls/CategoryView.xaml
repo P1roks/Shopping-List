@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Shopping4F2.Controls"
+             x:Name="this"
+             x:Class="Shopping4F2.Controls.CategoryView">
+    <VerticalStackLayout BindingContext="{x:Reference this}" WidthRequest="700">
+        <Label  FontSize="50">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="{Binding Group.Arrow}" FontFamily="MaterialIcons" />
+                    <Span Text="{Binding Group.Text}" />
+                </FormattedString>
+            </Label.FormattedText>
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding Group.CollapseCommand}"/>
+            </Label.GestureRecognizers>
+        </Label>
+
+        <CollectionView ItemsSource="{Binding Group.Products}" IsVisible="{Binding Group.Expanded}" SelectionMode="None">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Vertical" ItemSpacing="10"/>
+            </CollectionView.ItemsLayout>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <controls:ProductView Vm="{Binding}" />
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentView>

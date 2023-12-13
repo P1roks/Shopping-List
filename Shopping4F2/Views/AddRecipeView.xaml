@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Shopping4F2.Controls"
+             x:Class="Shopping4F2.Views.AddRecipeView"
+             Title="Add Recipe">
+    <VerticalStackLayout>
+        <Grid Padding="50" ColumnSpacing="200">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+                <Grid VerticalOptions="Start" RowSpacing="20" ColumnSpacing="25" Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    
+                    <Label Text="Name" FontSize="30" Grid.Column="0" Grid.Row="0"/>
+                    <Entry x:Name="NameEntry" Grid.Column="1" Grid.Row="0"/>
+
+                    <Label Text="Description" FontSize="30" Grid.Column="0" Grid.Row="1"/>
+                    <Editor x:Name="DescriptionEditor" Grid.ColumnSpan="2" Grid.Row="2" HeightRequest="400" Placeholder="Enter your description here..."/>
+                </Grid>
+
+                <FlexLayout x:Name="ProductsFlex" VerticalOptions="Start" Direction="Column" Grid.Column="1">
+                    <Label Text="Products" FontSize="30" />
+                    <controls:AddRecipeProductView />
+            </FlexLayout> 
+        </Grid>
+        <Button Text="Add Recipe"  Grid.Row="4" Grid.Column="0" Clicked="AddRecipe_Clicked"/>
+        <Button Text="Add Product" Grid.Row="4" Grid.Column="1" Clicked="AddProduct_Clicked"/>
+    </VerticalStackLayout>
+</ContentPage>

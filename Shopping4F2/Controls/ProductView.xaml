@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:Shopping4F2.Models"
+             x:Name="this"
+             x:Class="Shopping4F2.Controls.ProductView">
+    <Border BindingContext="{x:Reference this}" Opacity="{Binding Vm.Opacity}" IsVisible="{Binding Vm.Visible}">
+        <StackLayout Orientation="Horizontal" BackgroundColor="#303030" Padding="20">
+            <Label FontSize="40" VerticalOptions="Center" Text="{Binding Vm.Name}" HorizontalOptions="StartAndExpand"/>
+            <Grid Margin="20,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Entry x:Name="Count" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="40" Keyboard="Numeric" Text="{Binding Vm.Count}" Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="0" />
+                <Label HorizontalOptions="Center" Text="+" FontSize="25" Grid.Row="1" Grid.Column="0">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding Vm.IncreaseCommand}" />
+                    </Label.GestureRecognizers>
+                </Label>
+                <Label HorizontalOptions="Center" Text="-" FontSize="25" Grid.Row="1" Grid.Column="1">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding Vm.DecreaseCommand}" />
+                </Label.GestureRecognizers>
+            </Label>
+            </Grid>
+            <Label FontSize="40" VerticalOptions="Center" Margin="0,0,20,0" Text="{Binding Vm.Unit}"/>
+            <Label FontSize="40" VerticalOptions="Center" Text="{x:Static models:Icons.Checkmark}" FontFamily="MaterialIcons" TextColor="{Binding Vm.BoughtColor}">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding Vm.SwitchBoughtCommand}" />
+                </Label.GestureRecognizers>
+            </Label>
+            <Label FontSize="40" VerticalOptions="Center" Margin="0,0,50,0" Text="{x:Static models:Icons.DeleteIcon}" FontFamily="MaterialIcons" TextColor="Red">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding Vm.DeleteCommand}" />
+                </Label.GestureRecognizers>
+            </Label>
+            <Label Text="Optional" Opacity="{Binding Vm.OptionalOpacity}" />
+        </StackLayout>
+    </Border>
+</ContentView>

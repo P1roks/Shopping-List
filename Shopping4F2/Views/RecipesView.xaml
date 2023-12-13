@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:Shopping4F2.Models"
+             xmlns:controls="clr-namespace:Shopping4F2.Controls"
+             xmlns:viewmodels="clr-namespace:Shopping4F2.ViewModels"
+             x:Class="Shopping4F2.Views.RecipesView"
+             Title="Recipes">
+    <ContentPage.BindingContext>
+        <viewmodels:RecipesViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="{FontImage Glyph={x:Static models:Icons.AddIcon}, FontFamily='MaterialIcons'}" Text="Add Product" Command="{Binding AddRecipeCommand}"/>
+    </ContentPage.ToolbarItems>
+
+    <CarouselView ItemsSource="{Binding Recipes}" PeekAreaInsets="500,0,500,0" VerticalOptions="Center">
+        <CarouselView.ItemTemplate>
+            <DataTemplate>
+                <controls:RecipeView Recipe="{Binding}" />
+            </DataTemplate>
+        </CarouselView.ItemTemplate>
+    </CarouselView>
+</ContentPage>
