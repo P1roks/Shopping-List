@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Shopping4F2.Views.ImportExportView"
+             Title="Import/Export">
+    <FlexLayout JustifyContent="Center" AlignContent="Center">
+        <VerticalStackLayout HorizontalOptions="Center" Padding="50">
+            <Label Text="Import" FontSize="Header" />
+            <Button Text="Choose File" Clicked="Import_Clicked" />
+        </VerticalStackLayout>
+
+        <VerticalStackLayout HorizontalOptions="Center" Padding="50">
+            <Label Text="Export" FontSize="Header" />
+            <Button Text="Export" Clicked="Export_Clicked" />
+        </VerticalStackLayout>
+    </FlexLayout>
+</ContentPage>

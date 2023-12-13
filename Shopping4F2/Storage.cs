@@ -56,6 +56,20 @@ namespace Shopping4F2
             }
         }
 
+        public static void SaveTo(string location)
+        {
+            XML.Save(location);
+        }
+
+        public static void Import(string location)
+        {
+            Trace.WriteLine(location);
+            File.Copy(location, _fileName, true);
+            XML = XDocument.Load(_fileName);
+            Product.Categories = GetCategories();
+            Product.Shops = GetShops();
+        }
+
         // Products
         public static IEnumerable<Product> GetProducts() =>
             from product in XML.Root.Element("Products").Elements("Product")

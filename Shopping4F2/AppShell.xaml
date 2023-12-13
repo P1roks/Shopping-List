@@ -26,5 +26,12 @@
             ContentTemplate="{DataTemplate views:RecipesView}" 
             Route="Recipes"
             />
+
+        <ShellContent 
+            Title="Import Export"
+            Icon="{FontImage FontFamily='MaterialIcons', Glyph={x:Static models:Icons.TwoWayArrowsIcon}}"
+            ContentTemplate="{DataTemplate views:ImportExportView}" 
+            Route="IE"
+            />
     </TabBar>
 </Shell>

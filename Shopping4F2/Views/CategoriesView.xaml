@@ -5,7 +5,7 @@
              xmlns:models="clr-namespace:Shopping4F2.Models"
              xmlns:viewmodels="clr-namespace:Shopping4F2.ViewModels"
              xmlns:controls="clr-namespace:Shopping4F2.Controls"
-             Title="CategoriesView">
+             Title="Shopping List">
     <ContentPage.BindingContext>
         <viewmodels:ProductsCategoriesViewModel />
     </ContentPage.BindingContext>
